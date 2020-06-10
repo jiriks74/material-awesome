@@ -2,7 +2,16 @@ local gears = require('gears')
 local awful = require('awful')
 require('awful.autofocus')
 local beautiful = require('beautiful')
+-- load the widget code
+local layout_indicator = require("keyboard-layout-indicator")
 
+-- define your layouts
+kbdcfg = layout_indicator({
+    layouts = {
+        {name="cz",  layout="cz",  variant=nil},
+        {name="en",  layout="us",  variant=nil}
+    }
+})
 -- Theme
 beautiful.init(require('theme'))
 

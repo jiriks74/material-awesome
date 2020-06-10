@@ -95,6 +95,7 @@ return function(screen, panel, action_bar_width)
       require('widget.battery'),
       -- Clock
       --clock_widget
+      kbdcfg.widget
     }
   }
 end
