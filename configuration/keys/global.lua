@@ -9,16 +9,17 @@ local apps = require('configuration.apps')
 -- Key bindings
 local globalKeys =
   awful.util.table.join(
-  -- Media keys
+  -- to go to next screen
+  awful.key({ modkey,}, "p", function () awful.screen.focus_relative(1) end),
+  -- to active screen 2
+  --awful.key({ shift, }, "z", function () awful.screen.focus(2) end),
+  --Media keys
   awful.key({ }, "#172", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause", false) end),
   awful.key({ }, "#171", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next", false) end),
   awful.key({ }, "#173", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous", false) end),
   --Keyboard layout switch
   awful.key({altkey},'Shift_L', function() kbdcfg:next() end ),
   awful.key({altkey, modkey}, "Shift_L", function() kbdcfg:prev() end ),
-  -- Backlight
-  awful.key({ }, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 5") end),
-  awful.key({ }, "XF86MonBrightnessUp", function () awful.util.spawn("xbacklight -inc 5") end),
   -- Hotkeys
   awful.key({modkey}, 'F1', hotkeys_popup.show_help, {description = 'show help', group = 'awesome'}),
   -- Tag browsing

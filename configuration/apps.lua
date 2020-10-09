@@ -10,7 +10,7 @@ return {
   default = {
     terminal = 'terminator',
     rofi = rofi_command,
-    lock = 'i3lock-fancy -p',
+    lock = 'i3lock-fancy-multimonitor -p',
     quake = 'terminator',
     screenshot = '~/.config/awesome/configuration/utils/screenshot -m',
     region_screenshot = '~/.config/awesome/configuration/utils/screenshot -r',
@@ -21,27 +21,29 @@ return {
     browser = 'firefox',
     editor = 'kate', -- gui text editor
     social = 'discord',
-    game = 'lutris',
+    game = rofi_command,
     files = 'dolphin',
     music = 'spotify',
     writer = 'libreoffice --writer'
   },
   -- List of apps to start once on start-up
   run_on_start_up = {
-    'kdeconnect-indicator',
-    'compton --config ' .. filesystem.get_configuration_dir() .. '/configuration/compton.conf',
+    --'/home/jirka/.local/bin/wallpaper', --wallpaper changer, duplicate
+    'picom --config ' .. filesystem.get_configuration_dir() .. '/configuration/picom.conf',
+    #'picom --config ' .. filesystem.get_configuration_dir() .. '/configuration/compton.conf',
     'nm-applet', -- wifi
     'kmix', -- shows an audiocontrol applet in systray when installed.
-    'blueberry-tray', -- Bluetooth tray icon
-    'xfce4-power-manager', -- Power manager
+    --'blueberry-tray', -- Bluetooth tray icon
+    --'xfce4-power-manager', -- Power manager
     'ibus-daemon --xim', -- Ibus daemon for keyboard
     'scream -u -p 4011 -i virbr1', -- scream audio sink
     'numlockx on', -- enable numlock
-    '/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)', -- credential manager
-    --KDE '/usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)', -- credential manager
-    -- MATE'/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)', -- credential manager
+    --'/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)', -- credential manager
+    '/usr/lib/polkit-kde-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)', -- credential manager
+    --MATE'/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)', -- credential manager
      'steam -silent',
      'discord',
+     '/home/jirka/.local/bin/wallpaper', --wallpaper changer
     -- Add applications that need to be killed between reloads
     -- to avoid multipled instances, inside the awspawn script
     '~/.config/awesome/configuration/awspawn' -- Spawn "dirty" apps that can linger between sessions

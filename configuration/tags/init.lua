@@ -48,7 +48,7 @@ local tags = {
   },
   {
     icon = icons.school,
-    type = 'any',
+    type = 'school',
     defaultApp = apps.default.writer,
     screen = 1
   }
