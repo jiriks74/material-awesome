@@ -1,0 +1,4 @@
+#!/bin/bash
+
+wallpaper-reddit
+feh --bg-max /home/jirka/Pictures/Wallpapers/wallpaper.jpg
