@@ -31,13 +31,13 @@ An almost desktop environment made with [AwesomeWM](https://awesomewm.org/) foll
 - (Optional) [lxappearance](https://sourceforge.net/projects/lxde/files/LXAppearance/) to set up the gtk and icon theme
 - (Optional) [xbacklight](https://www.x.org/archive/X11R7.5/doc/man/man1/xbacklight.1.html) for adjusting brightness on laptops (disabled by default)
 - (Optional) [kde-spectacle](https://kde.org/applications/utilities/org.kde.spectacle) my personal screenshot utility of choice, can be replaced by whichever you want, just remember to edit the screenshot utility script
-- (Optional) feh
-- (Optional) wallpaper-reddit
+- (Optional) [feh](https://feh.finalrewind.org/) For setting the wallpaper (runs on every startup for making it persistent)
+- (Optional) [wallpaper-reddit](https://github.com/markubiak/wallpaper-reddit.git) For downloading daily wallpaper from reddit
 
 ### 2) Clone the configuration
 
 ```
-git clone https://github.com/ChrisTitusTech/material-awesome.git ~/.config/awesome
+git clone https://github.com/jiriks74/material-awesome.git ~/.config/awesome
 ```
 
 > Awesome 4.3 is so new that most of the distributions have not updated it yet. If you want to install this config on Awesome 4.2 (current version on depo) use the specific awesome-4.2 branch (not in development by me)
@@ -60,8 +60,13 @@ QT_QPA_PLATFORMTHEME=gtk2
 
 The first variable fixes most indicators (especially electron based ones!), the second tells Qt and KDE applications to use your gtk2 theme set through lxappearance.
 
+### 5) Link the wallpaper script to your `.local/bin/`
+```
+ln -s ~/.config/awesome/wallpaper ~/.local/bin/wallpaper
+```
+This script is run on every startup and on new day it'll download new wallpaper
 
-### 5) Read the documentation
+### 6) Read the documentation
 The documentation live within the source code.
 
 The project is split in functional directories and in each of them there is a readme where you can get additionnal informations about the them.
